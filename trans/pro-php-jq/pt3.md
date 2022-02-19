@@ -1,5 +1,4 @@
-# 第 3 部分
-将 jQuery 与 PHP 应用相结合
+# 第三部分：将 jQuery 与 PHP 应用相结合
 
 Abstract
 

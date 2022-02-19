@@ -1,5 +1,4 @@
-# 第 4 部分
-推进 jQuery 和 PHP
+# 第四部分：高级 jQuery 和 PHP
 
 Abstract
 

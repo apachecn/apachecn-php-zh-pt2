@@ -1,5 +1,4 @@
-# 第 1 部分
-熟悉 jQuery
+# 第一部分：熟悉 jQuery
 
 Abstract
 
