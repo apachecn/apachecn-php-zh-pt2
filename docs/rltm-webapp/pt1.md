@@ -1,6 +1,6 @@
 第一部分
 
-![image](images/frontdot.jpg)
+![image](img/frontdot.jpg)
 
 **熟悉所需技术**
 
