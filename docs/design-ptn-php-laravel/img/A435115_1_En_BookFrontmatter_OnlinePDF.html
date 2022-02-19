@@ -1,0 +1,1441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Design Patterns in PHP and Laravel</title>
+<link href="springer_epub.css" type="text/css" rel="styleSheet"/>
+</head>
+<body>
+<div class="BookFrontmatter"><div class="BookTitlePage"><div class="BookAuthors"><span class="Author"><span class="AuthorName">Kelt Dockins</span></span></div>
+<div class="MainTitleSection"><span class="BookTitle" xml:lang="en">Design Patterns in PHP and Laravel</span></div>
+<div class="PublisherLogo"><div class="Figure" id="Figa"><div class="MediaObject"><img src="A435115_1_En_BookFrontmatter_Figa_HTML.png" alt="A435115_1_En_BookFrontmatter_Figa_HTML.png"/></div>
+</div>
+</div>
+</div>
+<div class="CopyrightPage"><div class="CopyrightPageOriginators"><div class="AuthorGroup"><div class="Author"><span class="AuthorName">Kelt Dockins</span><div class="Affiliation" id="Aff1"><div class="AffiliationText">Dolph, Arkansas, USA</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ArticleNote ArticleNoteESMHint BookFrontmatterArticleNote"><div class="SimplePara">
+            Any source code or other supplementary materials referenced by the author in this text are available to readers at
+            <span class="ExternalRef"><a href="http://www.apress.com"><span class="RefSource">
+                <span class="EmphasisFontCategoryNonProportional">www.apress.com</span>
+              </span></a></span>
+            . For detailed information about how to locate your book’s source code, go to
+            <span class="ExternalRef"><a href="http://www.apress.com/source-code/"><span class="RefSource">
+                <span class="EmphasisFontCategoryNonProportional">www.apress.com/source-code/</span>
+              </span></a></span>
+            . Readers can also access source code at SpringerLink in the Supplementary Material section for each chapter.
+          </div>
+</div>
+<div class="CopyrightPageISBNs"><span class="CopyrightPagePrintISBN">
+					ISBN 978-1-4842-2450-2</span><span class="CopyrightPageElectronicISBN">e-ISBN 978-1-4842-2451-9</span></div>
+<div class="BookDOI">DOI 10.1007/978-1-4842-2451-9</div>
+<div class="CatalogingInformation">Library of Congress Control Number: 2016961807</div>
+<div class="CopyrightLine">© Kelt Dockins 2017</div>
+<div class="CopyrightStandardText" xml:lang="en">This work is subject to copyright. All rights are reserved by the Publisher, whether the whole or part of the material is concerned, specifically the rights of translation, reprinting, reuse of illustrations, recitation, broadcasting, reproduction on microfilms or in any other physical way, and transmission or information storage and retrieval, electronic adaptation, computer software, or by similar or dissimilar methodology now known or hereafter developed.</div>
+<div class="TrademarkQualifierText" xml:lang="en">Trademarked names, logos, and images may appear in this book. Rather than use a trademark symbol with every occurrence of a trademarked name, logo, or image we use the names, logos, and images only in an editorial fashion and to the benefit of the trademark owner, with no intention of infringement of the trademark. The use in this publication of trade names, trademarks, service marks, and similar terms, even if they are not identified as such, is not to be taken as an expression of opinion as to whether or not they are subject to proprietary rights.</div>
+<div class="ProductLiability" xml:lang="en">While the advice and information in this book are believed to be true and accurate at the date of publication, neither the authors nor the editors nor the publisher can accept any legal responsibility for any errors or omissions that may be made. The publisher makes no warranty, express or implied, with respect to the material contained herein.</div>
+<div class="PaperInfo" xml:lang="en">Printed on acid-free paper</div>
+<div class="SpringerReferenceLine" xml:lang="en">Distributed to the book trade worldwide by Springer Science+Business Media New York, 233 Spring Street, 6th Floor, New York, NY 10013. Phone 1-800-SPRINGER, fax (201) 348-4505, e-mail orders-ny@springer-sbm.com, or visit www.springer.com. Apress Media, LLC is a California LLC and the sole member (owner) is Springer Science + Business Media Finance Inc (SSBM Finance Inc). SSBM Finance Inc is a Delaware corporation</div>
+</div>
+<div id="Preface1" class="Preface"><div class="PrefaceTitle" xml:lang="en">Introduction</div>
+<div class="PrefaceBody"><div id="Par1" class="Para">
+              <div class="Figure" id="Figb"><div class="MediaObject" id="MO2"><img src="A435115_1_En_BookFrontmatter_Fig1_HTML.jpg" alt="A435115_1_En_BookFrontmatter_Fig1_HTML.jpg"/></div>
+</div>
+            </div>
+<div id="Par2" class="Para">Hello there. I see you’ve met a few characters that will be in this book. Don’t worry; there will be plenty more where that came from!</div>
+<div id="Par3" class="Para">Please allow me to introduce myself. I’m Kelt. Together we are going to explore design patterns together. Not only that, but we will learn more about PHP and Laravel. If you’re looking to improve your knowledge on any of these subjects, this book will help you. Be forewarned: there is a ton of really bad humor in this book. Here is an example.</div>
+<div id="Par4" class="Para">
+              My pappy once told me, two days ago, that all great books have at least three things. He asked if I knew what those three things were. I replied,
+              <div class="OrderedList"><ol><li class="ListItem"><span class="ItemNumber">1.</span><div class="ItemContent"><div><div id="Par5" class="Para">Words</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">2.</span><div class="ItemContent"><div><div id="Par6" class="Para">Sentences</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">3.</span><div class="ItemContent"><div><div id="Par7" class="Para">Paragraphs</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+</ol>
+</div>
+            </div>
+<div id="Par8" class="Para">
+              Wrong! He slapped me with a trout. He corrected me:
+              <div class="OrderedList"><ol><li class="ListItem"><span class="ItemNumber">1.</span><div class="ItemContent"><div><div id="Par9" class="Para">Cuss words</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">2.</span><div class="ItemContent"><div><div id="Par10" class="Para">Death sentences</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">3.</span><div class="ItemContent"><div><div id="Par11" class="Para">Paraphernalia, sex, drugs, and alcohol</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+</ol>
+</div>
+            </div>
+<div id="Par12" class="Para">“But that’s more than thre…,” I questioned him, but I was reprimanded with yet another trout slap. “Okay,” I said. I quickly shut my yapper. Reader beware, this book has all those things. Don’t let your kids read this unless they are over 30 and living in your basement. In that case, tell them to read this book and go get a job.</div>
+<div id="Par13" class="Para ParaTypeImportant">
+              <img src="A435115_1_En_BookFrontmatter_Figb_HTML.jpg" alt="A435115_1_En_BookFrontmatter_Figb_HTML.jpg"/>
+              <span class="EmphasisTypeBold">Disclaimer</span>
+              I don’t do drugs. This book might make you think otherwise but honestly, I don’t need drugs to act stupid. Yes, really.
+            </div>
+<div id="Sec1" class="Section1 RenderAsSection1"><h2 class="Heading" id="sigil_toc_id_1">Who Is This Book For?</h2>
+<div id="Par14" class="Para">Anyone with a sawbuck can be the proud owner of this book. That’s the only requirement. But it will help a lot if you already know at least a little bit about PHP or Laravel. If you work on web apps and you’ve ever found yourself cussing at your past self from 6 months ago, then you’ll probably enjoy this book.</div>
+<div id="Par15" class="Para">
+                You will not be interested in this book if
+                <div class="OrderedList"><ol><li class="ListItem"><span class="ItemNumber">1.</span><div class="ItemContent"><div><div id="Par16" class="Para">You are a zombie who eats cats.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">2.</span><div class="ItemContent"><div><div id="Par17" class="Para">You don’t have $10.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">3.</span><div class="ItemContent"><div><div id="Par18" class="Para">You’d rather use assembly language than PHP.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">4.</span><div class="ItemContent"><div><div id="Par19" class="Para">You invented the Internet.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">5.</span><div class="ItemContent"><div><div id="Par20" class="Para">You can bench press 624lbs, exactly.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">6.</span><div class="ItemContent"><div><div id="Par21" class="Para">You hate reading really long lists.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">7.</span><div class="ItemContent"><div><div id="Par22" class="Para">You think cows should never be given a typewriter.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">8.</span><div class="ItemContent"><div><div id="Par23" class="Para">You think David Hasselhoff is cute.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">9.</span><div class="ItemContent"><div><div id="Par24" class="Para">You were born yesterday.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">10.</span><div class="ItemContent"><div><div id="Par25" class="Para">You run marathons…</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">11.</span><div class="ItemContent"><div><div id="Par26" class="Para">… backwards.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">12.</span><div class="ItemContent"><div><div id="Par27" class="Para">You’ve never jumped on a bed.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">13.</span><div class="ItemContent"><div><div id="Par28" class="Para">You like to spit on pigs.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">14.</span><div class="ItemContent"><div><div id="Par29" class="Para ParaOneEmphasisChild">
+                        You didn’t see
+                        <span class="EmphasisTypeItalic">Watchmen</span>
+                        movie only because of the changes made to the story.
+                      </div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">15.</span><div class="ItemContent"><div><div id="Par30" class="Para">
+                        You would use php-snow
+                        <a href="#Fn1" id="Fn1_source"><sup>1</sup></a>
+                        for every project, ever.
+                      </div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">16.</span><div class="ItemContent"><div><div id="Par32" class="Para">You think Ents are dumb.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">17.</span><div class="ItemContent"><div><div id="Par33" class="Para ParaOneEmphasisChild">
+                        In fact, if you hate
+                        <span class="EmphasisTypeItalic">Lord of the Rings</span>
+                        , stop now and I’ll give you your money back.
+                      </div>
+<div id="Par34" class="Para">HATER.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">18.</span><div class="ItemContent"><div><div id="Par35" class="Para">You pass gas in elevators and smile wildly at other people at the same time.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">19.</span><div class="ItemContent"><div><div id="Par36" class="Para">That last one only counts on elevators in buildings over 50 stories high.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">20.</span><div class="ItemContent"><div><div id="Par37" class="Para">You work for the FBI or CIA. You are cool but please don’t read my book.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">21.</span><div class="ItemContent"><div><div id="Par38" class="Para">You have had unusual thoughts about Smurfette. Shame on you and shame on me.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">22.</span><div class="ItemContent"><div><div id="Par39" class="Para">You count sheep to stay awake.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">23.</span><div class="ItemContent"><div><div id="Par40" class="Para">You can’t read.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">24.</span><div class="ItemContent"><div><div id="Par41" class="Para ParaOneEmphasisChild">
+                        You still blog about TV series
+                        <span class="EmphasisTypeItalic">Full House</span>
+                        .
+                      </div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">25.</span><div class="ItemContent"><div><div id="Par42" class="Para">You troll books (don’t ask me how).</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">26.</span><div class="ItemContent"><div><div id="Par43" class="Para">
+                        You hold deep conversations with Nick Jr. Face
+                        <a href="#Fn2" id="Fn2_source"><sup>2</sup></a>
+                        .
+                      </div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">27.</span><div class="ItemContent"><div><div id="Par45" class="Para">You believe aliens don’t exist.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">28.</span><div class="ItemContent"><div><div id="Par46" class="Para">You work for the FBI (gonna list this twice just in case you didn’t catch it the first time).</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">29.</span><div class="ItemContent"><div><div id="Par47" class="Para">You walk like a penguin and evilly plot against Batman.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">30.</span><div class="ItemContent"><div><div id="Par48" class="Para">You were born the day before yesterday.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">31.</span><div class="ItemContent"><div><div id="Par49" class="Para ParaOneEmphasisChild">
+                        You didn’t watch
+                        <span class="EmphasisTypeItalic">The Hunger Games</span>
+                        because you’ve already read the book.
+                      </div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">32.</span><div class="ItemContent"><div><div id="Par50" class="Para">You think Zelda is a dude in a green outfit.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">33.</span><div class="ItemContent"><div><div id="Par51" class="Para">You will code in Rails until the day you die (good for you, good for you).</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">34.</span><div class="ItemContent"><div><div id="Par52" class="Para">You are not a zombie but still eat cats.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">35.</span><div class="ItemContent"><div><div id="Par53" class="Para">You like to wear dresses in winter and you name is Pat.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">36.</span><div class="ItemContent"><div><div id="Par54" class="Para">You can ignore the previous line about dresses (I have a friend who does this).</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">37.</span><div class="ItemContent"><div><div id="Par55" class="Para">You can find your entire life story in a Dr. Seuss book.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">38.</span><div class="ItemContent"><div><div id="Par56" class="Para">You go to the library, find people, and tell them spoilers to great novels.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">39.</span><div class="ItemContent"><div><div id="Par57" class="Para">You don’t quite understand peaches.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">40.</span><div class="ItemContent"><div><div id="Par58" class="Para ParaOneEmphasisChild">
+                        You’ve never seen
+                        <span class="EmphasisTypeItalic">Back to the Future</span>
+                        .
+                      </div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">41.</span><div class="ItemContent"><div><div id="Par59" class="Para ParaOneEmphasisChild">
+                        You are in a
+                        <span class="EmphasisTypeItalic">Josie and the Pussycats</span>
+                        cover band.
+                      </div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">42.</span><div class="ItemContent"><div><div id="Par60" class="Para">You think Michael Bay should direct every movie, ever.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">43.</span><div class="ItemContent"><div><div id="Par61" class="Para">You are Michael Bay.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">44.</span><div class="ItemContent"><div><div id="Par62" class="Para">You visited the moon and didn’t bring me back a moon rock (jerk).</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">45.</span><div class="ItemContent"><div><div id="Par63" class="Para">You can do 100 consecutive push-ups (you are too badass to be reading this book).</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">46.</span><div class="ItemContent"><div><div id="Par64" class="Para">You were born tomorrow.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+<li class="ListItem"><span class="ItemNumber">47.</span><div class="ItemContent"><div><div id="Par65" class="Para">You think Chewbacca is chewing tobacco.</div>
+</div>
+</div><div class="ClearBoth"> </div></li>
+</ol>
+</div>
+              </div>
+<div id="Par66" class="Para">Did you really read this entire list? Awesome! I want to talk about gloves. Design patterns are like gloves. If they fit, wear ‘em. On the flipside, don’t try to wear gloves that don’t fit. Learning when to wear your design gloves is important. It is my hope that with the aid of this book you’ll understand when to leave the gloves off or put the gloves on. We are almost ready to get started with Laravel basics but first let’s go over the structure of this book.</div>
+</div>
+<div id="Sec2" class="Section1 RenderAsSection1"><h2 class="Heading" id="sigil_toc_id_2">Layout of the Book</h2>
+<div id="Par67" class="Para">The first chapter provides some Laravel basics to get started coding. The next chapter covers elementary OO concepts. From there on out, you start learning different patterns and applying them in the context of Laravel and PHP.</div>
+<div id="Par68" class="Para">
+                I created a branch for every pattern in a git repository. You can view the git repository at
+                <span class="ExternalRef"><a href="https://github.com/kdocki/larasign"><span class="RefSource">
+                    <span class="EmphasisFontCategoryNonProportional">https://github.com/kdocki/larasign</span>
+                  </span></a></span>
+                <a href="#Fn3" id="Fn3_source"><sup>3</sup></a>
+                . At the beginning of every chapter will be git command to check out that chapter’s relevant code samples. You will need to clone this repository down if you want to follow along with code examples.
+              </div>
+<div id="Par70" class="Para">
+                <div class="ProgramCode" id="PC1"><div class="FixedLine">$&gt; git clone git@github.com:kdocki/larasign.git</div>
+</div>
+              </div>
+<div id="Par71" class="Para">This book organizes the patterns in a similar fashion as the Gang of Four book. The GoF patterns book came out 20 years ago in 1994, and the patterns are still being seen and talked about even in 2014. To me, that is awesome. As you learn some of these patterns, you will also be using the PHP framework Laravel and hopefully pick up little bits and pieces of the framework along the way. You will see that the Laravel framework lets you write quality code. In this book, I will cover these patterns.</div>
+<div id="Sec3" class="Section2 RenderAsSection2"><h3 class="Heading" id="sigil_toc_id_3">Creational</h3>
+<div id="Par72" class="Para">
+                  <div class="UnorderedList"><ul class="UnorderedListMarkBullet"><li><div id="Par73" class="Para">Abstract Factory</div></li>
+<li><div id="Par74" class="Para">Builder</div></li>
+<li><div id="Par75" class="Para">Factory Method</div></li>
+<li><div id="Par76" class="Para">Prototype</div></li>
+<li><div id="Par77" class="Para">Simple Singleton</div></li>
+<li><div id="Par78" class="Para">Simple Factory</div></li>
+</ul>
+</div>
+                </div>
+</div>
+<div id="Sec4" class="Section2 RenderAsSection2"><h3 class="Heading" id="sigil_toc_id_4">Structural</h3>
+<div id="Par79" class="Para">
+                  <div class="UnorderedList"><ul class="UnorderedListMarkBullet"><li><div id="Par80" class="Para">Adapter</div></li>
+<li><div id="Par81" class="Para">Bridge</div></li>
+<li><div id="Par82" class="Para">Composite</div></li>
+<li><div id="Par83" class="Para">Decorator</div></li>
+<li><div id="Par84" class="Para">Facade</div></li>
+<li><div id="Par85" class="Para">Flyweight</div></li>
+<li><div id="Par86" class="Para">Proxy</div></li>
+</ul>
+</div>
+                </div>
+</div>
+<div id="Sec5" class="Section2 RenderAsSection2"><h3 class="Heading" id="sigil_toc_id_5">Behavioral</h3>
+<div id="Par87" class="Para">
+                  <div class="UnorderedList"><ul class="UnorderedListMarkBullet"><li><div id="Par88" class="Para">Chain of Responsibility</div></li>
+<li><div id="Par89" class="Para">Command</div></li>
+<li><div id="Par90" class="Para">Interpreter</div></li>
+<li><div id="Par91" class="Para">Iterator</div></li>
+<li><div id="Par92" class="Para">Mediator</div></li>
+<li><div id="Par93" class="Para">Memento</div></li>
+<li><div id="Par94" class="Para">Observer</div></li>
+<li><div id="Par95" class="Para">State</div></li>
+<li><div id="Par96" class="Para">Strategy</div></li>
+<li><div id="Par97" class="Para">Template Method</div></li>
+<li><div id="Par98" class="Para">Visitor</div></li>
+</ul>
+</div>
+                </div>
+</div>
+</div>
+</div>
+</div>
+<div class="Toc" id="Toc"><div class="Headings"><div class="Heading">Contents</div>
+</div>
+<div class="TocBody"><div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="01.html"><span class="RefSource">Chapter 1:​ Laravel Basics</span></a></span>
+            </span><span class="TocPageNumber">1</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="01.html#Sec1"><span class="RefSource">What Is Composer?​</span></a></span>
+              </span><span class="TocPageNumber">2</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="01.html#Sec2"><span class="RefSource">Meta Information</span></a></span>
+              </span><span class="TocPageNumber">3</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="01.html#Sec3"><span class="RefSource">Dependency Management</span></a></span>
+              </span><span class="TocPageNumber">3</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="01.html#Sec4"><span class="RefSource">Autoloading</span></a></span>
+              </span><span class="TocPageNumber">4</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="01.html#Sec5"><span class="RefSource">Lifecycle Hooks/​Scripts</span></a></span>
+              </span><span class="TocPageNumber">4</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="01.html#Sec6"><span class="RefSource">Stability</span></a></span>
+              </span><span class="TocPageNumber">6</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="01.html#Sec7"><span class="RefSource">Running Composer</span></a></span>
+              </span><span class="TocPageNumber">6</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="01.html#Sec8"><span class="RefSource">Setting Up Your Environment Variable</span></a></span>
+              </span><span class="TocPageNumber">7</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="02.html"><span class="RefSource">Chapter 2:​ Let’s Grow a SOLID Garden</span></a></span>
+            </span><span class="TocPageNumber">9</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="02.html#Sec1"><span class="RefSource">Single Responsibility Principle</span></a></span>
+              </span><span class="TocPageNumber">9</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="02.html#Sec2"><span class="RefSource">Open/​Closed Principle</span></a></span>
+              </span><span class="TocPageNumber">10</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="02.html#Sec3"><span class="RefSource">Liskov Substitution Principle</span></a></span>
+              </span><span class="TocPageNumber">12</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="02.html#Sec4"><span class="RefSource">Interface Segregation Principle</span></a></span>
+              </span><span class="TocPageNumber">14</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="02.html#Sec5"><span class="RefSource">Dependency Inversion Principle</span></a></span>
+              </span><span class="TocPageNumber">15</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="02.html#Sec6"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">17</span></div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="02.html#Sec7"><span class="RefSource">Single Responsibility Principle</span></a></span>
+                </span><span class="TocPageNumber">17</span></div>
+</div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="02.html#Sec8"><span class="RefSource">Open/​Closed Principle</span></a></span>
+                </span><span class="TocPageNumber">17</span></div>
+</div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="02.html#Sec9"><span class="RefSource">Listov Substitution Principle</span></a></span>
+                </span><span class="TocPageNumber">17</span></div>
+</div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="02.html#Sec10"><span class="RefSource">Interface Segregation Principle</span></a></span>
+                </span><span class="TocPageNumber">17</span></div>
+</div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="02.html#Sec11"><span class="RefSource">Dependency Inversion Principle</span></a></span>
+                </span><span class="TocPageNumber">17</span></div>
+</div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="02.html#Sec12"><span class="RefSource">Encapsulate What Varies</span></a></span>
+                </span><span class="TocPageNumber">17</span></div>
+</div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="03.html"><span class="RefSource">Chapter 3:​ Abstract Factory</span></a></span>
+            </span><span class="TocPageNumber">19</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="03.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">19</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="03.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">19</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="03.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">20</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="03.html#Sec4"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">21</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="03.html#Sec5"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">21</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="03.html#Sec6"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">22</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="03.html#Sec7"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">24</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="04.html"><span class="RefSource">Chapter 4:​ Builder</span></a></span>
+            </span><span class="TocPageNumber">25</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="04.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">25</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="04.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">25</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="04.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">26</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="04.html#Sec4"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">26</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="04.html#Sec5"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">27</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="04.html#Sec6"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">27</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="04.html#Sec7"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">32</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="05.html"><span class="RefSource">Chapter 5:​ The Factory Method</span></a></span>
+            </span><span class="TocPageNumber">33</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="05.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">33</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="05.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">33</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="05.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">34</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="05.html#Sec4"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">34</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="05.html#Sec5"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">34</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="05.html#Sec6"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">35</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="05.html#Sec7"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">36</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="06.html"><span class="RefSource">Chapter 6:​ Prototype</span></a></span>
+            </span><span class="TocPageNumber">37</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="06.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">37</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="06.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">37</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="06.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">37</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="06.html#Sec4"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">38</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="06.html#Sec5"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">38</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="06.html#Sec6"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">39</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="06.html#Sec7"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">43</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="07.html"><span class="RefSource">Chapter 7:​ Singleton</span></a></span>
+            </span><span class="TocPageNumber">45</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="07.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">45</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="07.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">45</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="07.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">45</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="07.html#Sec4"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">46</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="07.html#Sec6"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">46</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="07.html#Sec7"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">49</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="08.html"><span class="RefSource">Chapter 8:​ Simple Factory Method</span></a></span>
+            </span><span class="TocPageNumber">51</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="08.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">51</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="08.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">51</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="08.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">51</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="08.html#Sec4"><span class="RefSource">Example Scenario</span></a></span>
+              </span><span class="TocPageNumber">52</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="08.html#Sec5"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">52</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="08.html#Sec6"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">53</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="09.html"><span class="RefSource">Chapter 9:​ Adapter</span></a></span>
+            </span><span class="TocPageNumber">55</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="09.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">55</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="09.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">55</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="09.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">56</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="09.html#Sec4"><span class="RefSource">Example Scenario</span></a></span>
+              </span><span class="TocPageNumber">57</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="09.html#Sec5"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">57</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="09.html#Sec6"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">58</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="09.html#Sec7"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">61</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="10.html"><span class="RefSource">Chapter 10:​ Bridge</span></a></span>
+            </span><span class="TocPageNumber">63</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="10.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">63</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="10.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">63</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="10.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">63</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="10.html#Sec4"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">64</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="10.html#Sec5"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">64</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="10.html#Sec6"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">65</span></div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="10.html#Sec7"><span class="RefSource">Second Example (Sending Messages)</span></a></span>
+                </span><span class="TocPageNumber">66</span></div>
+</div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="10.html#Sec8"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">69</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="11.html"><span class="RefSource">Chapter 11:​ Composite</span></a></span>
+            </span><span class="TocPageNumber">71</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="11.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">71</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="11.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">71</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="11.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">71</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="11.html#Sec4"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">72</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="11.html#Sec5"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">72</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="11.html#Sec6"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">73</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="11.html#Sec7"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">76</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="12.html"><span class="RefSource">Chapter 12:​ Decorator</span></a></span>
+            </span><span class="TocPageNumber">77</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="12.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">77</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="12.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">77</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="12.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">77</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="12.html#Sec4"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">78</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="12.html#Sec5"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">78</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="12.html#Sec6"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">79</span></div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="12.html#Sec7"><span class="RefSource">Presenters</span></a></span>
+                </span><span class="TocPageNumber">82</span></div>
+</div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="12.html#Sec10"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">83</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="13.html"><span class="RefSource">Chapter 13:​ Facade</span></a></span>
+            </span><span class="TocPageNumber">85</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="13.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">85</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="13.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">85</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="13.html#Sec3"><span class="RefSource">Laravel Facades</span></a></span>
+              </span><span class="TocPageNumber">85</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="13.html#Sec4"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">86</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="13.html#Sec5"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">87</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="13.html#Sec6"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">88</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="13.html#Sec7"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">89</span></div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="13.html#Sec8"><span class="RefSource">Are Facades the Same as Adapters?​</span></a></span>
+                </span><span class="TocPageNumber">91</span></div>
+</div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="13.html#Sec9"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">91</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="14.html"><span class="RefSource">Chapter 14:​ Flyweight</span></a></span>
+            </span><span class="TocPageNumber">93</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="14.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">93</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="14.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">93</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="14.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">94</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="14.html#Sec4"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">95</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="14.html#Sec5"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">95</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="14.html#Sec6"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">96</span></div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="14.html#Sec7"><span class="RefSource">The Flyweight Implementation</span></a></span>
+                </span><span class="TocPageNumber">100</span></div>
+</div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="14.html#Sec8"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">101</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="15.html"><span class="RefSource">Chapter 15:​ Proxy</span></a></span>
+            </span><span class="TocPageNumber">103</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="15.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">103</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="15.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">103</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="15.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">104</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="15.html#Sec4"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">104</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="15.html#Sec5"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">107</span></div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="15.html#Sec6"><span class="RefSource">Virtual Proxy (Experiment 1 and 2)</span></a></span>
+                </span><span class="TocPageNumber">107</span></div>
+</div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="15.html#Sec7"><span class="RefSource">Remote Proxy (Experiment 3)</span></a></span>
+                </span><span class="TocPageNumber">109</span></div>
+</div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="15.html#Sec8"><span class="RefSource">Protection Proxy (Experiment 4)</span></a></span>
+                </span><span class="TocPageNumber">111</span></div>
+</div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="15.html#Sec9"><span class="RefSource">Smart Proxy</span></a></span>
+                </span><span class="TocPageNumber">113</span></div>
+</div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="15.html#Sec10"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">114</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="16.html"><span class="RefSource">Chapter 16:​ Chain of Responsibility</span></a></span>
+            </span><span class="TocPageNumber">115</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="16.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">115</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="16.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">115</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="16.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">115</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="16.html#Sec4"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">116</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="16.html#Sec5"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">117</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="16.html#Sec6"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">117</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="16.html#Sec7"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">121</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="17.html"><span class="RefSource">Chapter 17:​ Command</span></a></span>
+            </span><span class="TocPageNumber">123</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="17.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">123</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="17.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">123</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="17.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">124</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="17.html#Sec4"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">125</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="17.html#Sec5"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">125</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="17.html#Sec6"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">125</span></div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="17.html#Sec7"><span class="RefSource">Television Command Pattern Example</span></a></span>
+                </span><span class="TocPageNumber">130</span></div>
+</div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="17.html#Sec8"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">133</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="18.html"><span class="RefSource">Chapter 18:​ Interpreter</span></a></span>
+            </span><span class="TocPageNumber">135</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="18.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">135</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="18.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">135</span></div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="18.html#Sec3"><span class="RefSource">Context-Free Grammar</span></a></span>
+                </span><span class="TocPageNumber">136</span></div>
+</div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="18.html#Sec4"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">136</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="18.html#Sec5"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">137</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="18.html#Sec6"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">138</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="18.html#Sec7"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">139</span></div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="18.html#Sec8"><span class="RefSource">Dude, Where’s My Parser?​</span></a></span>
+                </span><span class="TocPageNumber">143</span></div>
+</div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="18.html#Sec9"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">146</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="19.html"><span class="RefSource">Chapter 19:​ Iterator</span></a></span>
+            </span><span class="TocPageNumber">147</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="19.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">147</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="19.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">147</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="19.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">148</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="19.html#Sec4"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">149</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="19.html#Sec5"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">150</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="19.html#Sec6"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">150</span></div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="19.html#Sec7"><span class="RefSource">Laravel Collections</span></a></span>
+                </span><span class="TocPageNumber">153</span></div>
+</div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="19.html#Sec8"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">155</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="20.html"><span class="RefSource">Chapter 20:​ Mediator</span></a></span>
+            </span><span class="TocPageNumber">157</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="20.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">157</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="20.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">157</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="20.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">157</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="20.html#Sec4"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">158</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="20.html#Sec5"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">159</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="20.html#Sec6"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">159</span></div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="20.html#Sec7"><span class="RefSource">Don’t Mess with My Constructor, Man!</span></a></span>
+                </span><span class="TocPageNumber">166</span></div>
+</div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="20.html#Sec8"><span class="RefSource">Mediator Is Not For Me</span></a></span>
+                </span><span class="TocPageNumber">166</span></div>
+</div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="20.html#Sec9"><span class="RefSource">Not a Mediator Pattern</span></a></span>
+                </span><span class="TocPageNumber">167</span></div>
+</div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="20.html#Sec10"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">169</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="21.html"><span class="RefSource">Chapter 21:​ Memento</span></a></span>
+            </span><span class="TocPageNumber">171</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="21.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">171</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="21.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">171</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="21.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">172</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="21.html#Sec4"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">173</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="21.html#Sec5"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">173</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="21.html#Sec6"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">174</span></div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="21.html#Sec7"><span class="RefSource">Alternatives to Memento</span></a></span>
+                </span><span class="TocPageNumber">177</span></div>
+</div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="21.html#Sec10"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">180</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="22.html"><span class="RefSource">Chapter 22:​ Observer</span></a></span>
+            </span><span class="TocPageNumber">181</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="22.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">181</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="22.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">181</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="22.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">181</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="22.html#Sec4"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">182</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="22.html#Sec5"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">182</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="22.html#Sec6"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">183</span></div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="22.html#Sec7"><span class="RefSource">Generic Observers with SPL</span></a></span>
+                </span><span class="TocPageNumber">183</span></div>
+</div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="22.html#Sec8"><span class="RefSource">Taylor Cuts the Cheese</span></a></span>
+                </span><span class="TocPageNumber">185</span></div>
+</div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="22.html#Sec9"><span class="RefSource">Eloquent Observers:​ Out-of-the-Box Observers</span></a></span>
+                </span><span class="TocPageNumber">188</span></div>
+</div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="22.html#Sec12"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">196</span></div>
+<div class="TocSection2"><div class="TocEntry"><span class="TocItem">
+                  <span class="ExternalRef"><a href="22.html#Sec13"><span class="RefSource">Drawbacks</span></a></span>
+                </span><span class="TocPageNumber">197</span></div>
+</div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="23.html"><span class="RefSource">Chapter 23:​ State</span></a></span>
+            </span><span class="TocPageNumber">199</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="23.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">199</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="23.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">199</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="23.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">199</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="23.html#Sec4"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">200</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="23.html#Sec5"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">201</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="23.html#Sec6"><span class="RefSource">Implementation:​ Example 1 - State Pattern</span></a></span>
+              </span><span class="TocPageNumber">202</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="23.html#Sec7"><span class="RefSource">Example 2 - Enter State Machines</span></a></span>
+              </span><span class="TocPageNumber">206</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="23.html#Sec8"><span class="RefSource">Example 3</span></a></span>
+              </span><span class="TocPageNumber">212</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="23.html#Sec9"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">214</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="24.html"><span class="RefSource">Chapter 24:​ Strategy</span></a></span>
+            </span><span class="TocPageNumber">215</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="24.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">215</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="24.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">215</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="24.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">215</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="24.html#Sec4"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">216</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="24.html#Sec5"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">217</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="24.html#Sec6"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">218</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="24.html#Sec7"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">220</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="25.html"><span class="RefSource">Chapter 25:​ Template Method</span></a></span>
+            </span><span class="TocPageNumber">221</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="25.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">221</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="25.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">221</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="25.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">221</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="25.html#Sec4"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">222</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="25.html#Sec5"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">222</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="25.html#Sec6"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">223</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="25.html#Sec7"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">225</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="26.html"><span class="RefSource">Chapter 26:​ Visitor</span></a></span>
+            </span><span class="TocPageNumber">227</span></div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="26.html#Sec1"><span class="RefSource">Intent</span></a></span>
+              </span><span class="TocPageNumber">227</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="26.html#Sec2"><span class="RefSource">Applications</span></a></span>
+              </span><span class="TocPageNumber">227</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="26.html#Sec3"><span class="RefSource">Abstract Structure</span></a></span>
+              </span><span class="TocPageNumber">228</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="26.html#Sec4"><span class="RefSource">Example</span></a></span>
+              </span><span class="TocPageNumber">228</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="26.html#Sec5"><span class="RefSource">Example Structure</span></a></span>
+              </span><span class="TocPageNumber">229</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="26.html#Sec6"><span class="RefSource">Implementation</span></a></span>
+              </span><span class="TocPageNumber">229</span></div>
+</div>
+<div class="TocSection1"><div class="TocEntry"><span class="TocItem">
+                <span class="ExternalRef"><a href="26.html#Sec7"><span class="RefSource">Conclusion</span></a></span>
+              </span><span class="TocPageNumber">232</span></div>
+</div>
+</div>
+<div class="TocChapter"><div class="TocEntry"><span class="TocItem">
+              <span class="ExternalRef"><a href="27.html"><span class="RefSource">Chapter 27:​ More Resources</span></a></span>
+            </span><span class="TocPageNumber">233</span></div>
+</div>
+<div class="TocBack"><span class="TocItem">Index</span><span class="TocPageNumber">235</span></div>
+</div>
+</div>
+<div id="Loh1" class="Loh"><div class="Headings"><div class="Heading">Contents at a Glance</div>
+</div>
+<div class="LohBody"><div class="LohEntry"><span class="LohItem">About the Author</span><span class="LohPageNumber">xv</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">About the Technical Reviewer</span><span class="LohPageNumber">xvii</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">Introduction</span><span class="LohPageNumber">xix</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="01.html"><span class="RefSource">Chapter 1:​ Laravel Basics</span></a></span>
+          </span><span class="LohPageNumber">1</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="02.html"><span class="RefSource">Chapter 2:​ Let’s Grow a SOLID Garden</span></a></span>
+          </span><span class="LohPageNumber">9</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="03.html"><span class="RefSource">Chapter 3:​ Abstract Factory</span></a></span>
+          </span><span class="LohPageNumber">19</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="04.html"><span class="RefSource">Chapter 4:​ Builder</span></a></span>
+          </span><span class="LohPageNumber">25</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="05.html"><span class="RefSource">Chapter 5:​ The Factory Method</span></a></span>
+          </span><span class="LohPageNumber">33</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="06.html"><span class="RefSource">Chapter 6:​ Prototype</span></a></span>
+          </span><span class="LohPageNumber">37</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="07.html"><span class="RefSource">Chapter 7:​ Singleton</span></a></span>
+          </span><span class="LohPageNumber">45</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="08.html"><span class="RefSource">Chapter 8:​ Simple Factory Method</span></a></span>
+          </span><span class="LohPageNumber">51</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="09.html"><span class="RefSource">Chapter 9:​ Adapter</span></a></span>
+          </span><span class="LohPageNumber">55</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="10.html"><span class="RefSource">Chapter 10:​ Bridge</span></a></span>
+          </span><span class="LohPageNumber">63</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="11.html"><span class="RefSource">Chapter 11:​ Composite</span></a></span>
+          </span><span class="LohPageNumber">71</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="12.html"><span class="RefSource">Chapter 12:​ Decorator</span></a></span>
+          </span><span class="LohPageNumber">77</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="13.html"><span class="RefSource">Chapter 13:​ Facade</span></a></span>
+          </span><span class="LohPageNumber">85</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="14.html"><span class="RefSource">Chapter 14:​ Flyweight</span></a></span>
+          </span><span class="LohPageNumber">93</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="15.html"><span class="RefSource">Chapter 15:​ Proxy</span></a></span>
+          </span><span class="LohPageNumber">103</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="16.html"><span class="RefSource">Chapter 16:​ Chain of Responsibility</span></a></span>
+          </span><span class="LohPageNumber">115</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="17.html"><span class="RefSource">Chapter 17:​ Command</span></a></span>
+          </span><span class="LohPageNumber">123</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="18.html"><span class="RefSource">Chapter 18:​ Interpreter</span></a></span>
+          </span><span class="LohPageNumber">135</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="19.html"><span class="RefSource">Chapter 19:​ Iterator</span></a></span>
+          </span><span class="LohPageNumber">147</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="20.html"><span class="RefSource">Chapter 20:​ Mediator</span></a></span>
+          </span><span class="LohPageNumber">157</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="21.html"><span class="RefSource">Chapter 21:​ Memento</span></a></span>
+          </span><span class="LohPageNumber">171</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="22.html"><span class="RefSource">Chapter 22:​ Observer</span></a></span>
+          </span><span class="LohPageNumber">181</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="23.html"><span class="RefSource">Chapter 23:​ State</span></a></span>
+          </span><span class="LohPageNumber">199</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="24.html"><span class="RefSource">Chapter 24:​ Strategy</span></a></span>
+          </span><span class="LohPageNumber">215</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="25.html"><span class="RefSource">Chapter 25:​ Template Method</span></a></span>
+          </span><span class="LohPageNumber">221</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="26.html"><span class="RefSource">Chapter 26:​ Visitor</span></a></span>
+          </span><span class="LohPageNumber">227</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">
+            <span class="ExternalRef"><a href="27.html"><span class="RefSource">Chapter 27:​ More Resources</span></a></span>
+          </span><span class="LohPageNumber">233</span></div>
+<div class="ClearBoth"> </div>
+<div class="LohEntry"><span class="LohItem">Index</span><span class="LohPageNumber">235</span></div>
+<div class="ClearBoth"> </div>
+</div>
+</div>
+<div class="Loc"><div class="Headings"><div class="Heading">About the Author and About the Technical Reviewer</div>
+</div>
+<div class="LocBody"><div class="LocDiv"><div class="Headings"><div class="Heading">About the Author</div>
+</div>
+<div class="AuthorGroup"><span class="Author"><span class="AuthorName">Kelt Dockins</span></span><div class="Biography"><div class="Para">is a humble narcissistic web developer. He works as a full stack freelancer. He specializes in quick-to-market web applications and minimum viable products for start-ups. He has worked on small projects, medium-size projects, and even a few small-medium-sized projects. He loves being a father, a husband, and a developer. He’s worked with many programming languages such as Visual Basic 6.0, C++, Java, Perl, bash, prolog, .NET stack, HTML, CSS, JavaScript and PHP. For the last three years, he’s been using PHP and the ever-so-popular Laravel framework to stay at home and eat bacon while earning it at the same time. He does love bacon.</div>
+</div>
+<div class="ClearBoth"> </div>
+</div>
+</div>
+<div class="LocDiv"><div class="Headings"><div class="Heading">About the Technical Reviewer</div>
+</div>
+<div class="AuthorGroup"><span class="Author"><span class="AuthorName">Martin Bean</span></span><div class="Biography"><div id="Par99" class="Para">is an experienced full-stack developer, specializing in PHP and related technologies. Based in Newcastle upon Tyne, UK, he is currently team lead on a Laravel-based product, a position he took after running his own consultancy business for nearly five years.</div>
+<div class="Para">He is also very active in the web development community. He tweets regularly as @martinbean, maintains his own blog at martinbean.co.uk, and is also co-organizer of his local PHP and Laravel user groups.</div>
+</div>
+<div class="ClearBoth"> </div>
+</div>
+</div>
+</div>
+</div>
+<div class="FootnoteSection BookFrontmatterFootnoteSection"><div class="Heading">Footnotes</div>
+<div class="Footnote" id="Fn1"><span class="FootnoteNumber"><a href="#Fn1_source">1</a></span><div class="FootnoteParas"><div id="Par31" class="Para">
+                            <span class="ExternalRef"><a href="https://code.google.com/archive/p/php-snow/"><span class="RefSource">
+                                <span class="EmphasisFontCategoryNonProportional">https://code.google.com/archive/p/php-snow/</span>
+                              </span></a></span>
+                          </div>
+</div>
+<div class="ClearBoth"> </div>
+</div>
+<div class="Footnote" id="Fn2"><span class="FootnoteNumber"><a href="#Fn2_source">2</a></span><div class="FootnoteParas"><div id="Par44" class="Para">
+                            <span class="ExternalRef"><a href="http://www.youtube.com/watch?v=LaXIL8QMDzU"><span class="RefSource">
+                                <span class="EmphasisFontCategoryNonProportional">www.youtube.com/watch?v=LaXIL8QMDzU</span>
+                              </span></a></span>
+                          </div>
+</div>
+<div class="ClearBoth"> </div>
+</div>
+<div class="Footnote" id="Fn3"><span class="FootnoteNumber"><a href="#Fn3_source">3</a></span><div class="FootnoteParas"><div id="Par69" class="Para">
+                    <span class="ExternalRef"><a href="https://github.com/kdocki/larasign"><span class="RefSource">
+                        <span class="EmphasisFontCategoryNonProportional">https://github.com/kdocki/larasign</span>
+                      </span></a></span>
+                  </div>
+</div>
+<div class="ClearBoth"> </div>
+</div>
+</div>
+</div>
+</body>
+</html>
