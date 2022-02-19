@@ -1,6 +1,6 @@
-# PHP8 揭秘
+# PHP7 和 MySQL8 实践指南
 
-> 原文：[PHP 8 Revealed](https://zh.book4you.org/book/11448771/4f6e7d)
+> 原文：[Practical PHP 7, MySQL 8, and MariaDB Website Databases](https://zh.book4you.org/book/5534522/476e32)
 > 
 > 协议：[CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 > 

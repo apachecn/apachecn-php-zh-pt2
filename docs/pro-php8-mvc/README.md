@@ -1,6 +1,6 @@
-# PHP8 揭秘
+# PHP8 MVC 高级教程
 
-> 原文：[PHP 8 Revealed](https://zh.book4you.org/book/11448771/4f6e7d)
+> 原文：[Pro PHP 8 MVC](https://zh.book4you.org/book/16289475/485f9e)
 > 
 > 协议：[CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 > 

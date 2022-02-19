@@ -1,6 +1,6 @@
-# PHP8 揭秘
+# PHP8 解决方案
 
-> 原文：[PHP 8 Revealed](https://zh.book4you.org/book/11448771/4f6e7d)
+> 原文：[PHP 8 Solutions](https://zh.book4you.org/book/17877040/8ed4e6)
 > 
 > 协议：[CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 > 

@@ -1,6 +1,6 @@
-# PHP8 揭秘
+# 实时 Web 应用
 
-> 原文：[PHP 8 Revealed](https://zh.book4you.org/book/11448771/4f6e7d)
+> 原文：[Realtime Web Apps](https://zh.book4you.org/book/2083298/872a7b)
 > 
 > 协议：[CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 > 
