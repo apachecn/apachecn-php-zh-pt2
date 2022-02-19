@@ -1,4 +1,4 @@
-# 实时 Web 应用
+# HTML5 WebSocket、PHP 和 jQuery 实时 Web 应用
 
 > 原文：[Realtime Web Apps](https://zh.book4you.org/book/2083298/872a7b)
 > 
